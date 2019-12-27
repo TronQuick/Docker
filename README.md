@@ -6,6 +6,78 @@ Docker 是Docker 是一个开源的应用容器引擎，让开发者可以打包
 
 
 
+# Dockerfile
+
+通过编写简单的文件自创docker镜像
+
+## DockerFile语法
+
+| 命令       | 用途         |
+| ---------- | ------------ |
+| FROM       | base image   |
+| RUN        | 执行命令     |
+| ADD        | 添加文件     |
+| COPY       | 拷贝文件     |
+| CMD        | 执行命令     |
+| EXPOSE     | 暴露端口     |
+| WORKDIR    | 指定路径     |
+| MAINTAINER | 维护者       |
+| ENV        | 设定环境变量 |
+| ENTRYPOINT | 容器入口     |
+| USER       | 指定用户     |
+| VOLUME     | mount point  |
+
+
+
+**第一个Dockerfile:**
+
+```powershell
+FROM alpine:latest      #基础镜像
+MAINTAINER tron         #作者标注
+CMD echo 'hello docker' #容器效果
+```
+
+**第二个Dockerfile:**
+
+```powershell
+FROM ubuntu
+MAINTAINER tron
+RUN apt-get update
+RUN apt-get install -y nginx
+COPY index.html /var/www/html
+ENTRYPOINT ["/usr/sbin/nginx","-g","daemon off;"]
+EXPOSE 80
+```
+
+
+
+## 镜像分层
+
+**Dockerfile中的每一行都产生一个新层**
+
+```powershell
+#每一层都会生成一个ID
+FROM alpine:latest      4es778sd7
+MAINTAINER tron         d78fd87d8
+CMD echo 'hello docker' 7d8f9d9f9
+```
+
+**优点**：
+
+不同的image，可以共享相同的层，减少存储压力
+
+
+
+
+
+# Volume
+
+提供**独立**于容器之外的**持久化**储存
+
+
+
+
+
 # 常用指令
 
 ## docker服务启停篇
