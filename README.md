@@ -6,6 +6,25 @@ Docker 是Docker 是一个开源的应用容器引擎，让开发者可以打包
 
 
 
+
+
+## **术语**
+
+| EN        | CN       |
+| --------- | -------- |
+| host      | 宿主机   |
+| image     | 镜像     |
+| container | 容器     |
+| registry  | 仓库     |
+| daemon    | 守护程序 |
+| client    | 客户端   |
+
+
+
+
+
+
+
 # Dockerfile
 
 通过编写简单的文件自创docker镜像
@@ -73,6 +92,14 @@ CMD echo 'hello docker' 7d8f9d9f9
 # Volume
 
 提供**独立**于容器之外的**持久化**储存
+
+同一具有数据的容器可以被多个容器挂载，实现数据共享
+
+
+
+# Registry
+
+镜像仓库
 
 
 
